@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    Link-in-Bio Landing • Author: Kishor (@iampatilkishor)
+    Drop this into index.html and deploy with GitHub Pages.
+    Replace CHATGPT_SHARE_URL below with your real share link.
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kishor — @iampatilkishor</title>
+  <meta name="description" content="Kishor — Nomad. Exploring ideas, building projects, and sharing with AI." />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kishor — @iampatilkishor" />
+  <meta property="og:description" content="A minimal, fast link hub. Chat with my AI or explore my work." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/0?v=4" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (emoji) -->
+  <link rel="icon" href="data:image/svg+xml,
+    %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E
+      %3Ctext y='.9em' font-size='90'%3E🌍%3C/text%3E
+    %3C/svg%3E" />
+
+  <style>
+    :root{
+      --bg:#0b1020;            /* deep space */
+      --bg-soft:#0f172a;       /* slate */
+      --card:#111827cc;        /* translucent panel */
+      --text:#e5e7eb;          /* soft white */
+      --muted:#94a3b8;         /* slate-400 */
+      --primary:#38bdf8;       /* sky-400 */
+      --primary-2:#22d3ee;     /* cyan-400 */
+      --ring:#7dd3fc66;        /* glow */
+      --shadow: 0 10px 30px rgba(2,8,23,.35);
+      --radius: 20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, #1e293b 0%, transparent 60%),
+        radial-gradient(1000px 600px at 10% 110%, #0ea5e955 0%, transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, #060910 100%);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{
+      min-height:100dvh;
+      display:grid;
+      place-items:center;
+      padding:32px 18px 44px;
+    }
+    .container{
+      width:min(820px, 100%);
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+      position:relative;
+      isolation:isolate;
+    }
+    .glass{
+      border:1px solid #ffffff1a;
+      background: linear-gradient(180deg, #ffffff12, #ffffff06);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+    .hero{
+      display:flex; gap:16px; align-items:center;
+      padding:18px; 
+    }
+    .avatar{
+      width:60px; height:60px; border-radius:16px;
+      background:
+        radial-gradient(60% 60% at 30% 30%, #ffffffbb 0%, transparent 60%),
+        linear-gradient(135deg, var(--primary), var(--primary-2));
+      display:grid; place-items:center; color:#00131a; font-weight:800; font-size:28px;
+      box-shadow:0 8px 25px #22d3ee44;
+    }
+    .title{font-size:28px; font-weight:700; letter-spacing:.2px}
+    .sub{color:var(--muted); font-size:14px; margin-top:2px}
+    .bio{color:var(--muted); line-height:1.6; padding:0 18px 10px; font-size:15px}
+    .controls{
+      display:flex; gap:8px; align-items:center; justify-content:space-between; padding:6px 8px;
+    }
+    .seg{
+      display:inline-flex; background:#0b1222cc; border:1px solid #ffffff1a; border-radius:999px; padding:4px;
+    }
+    .seg button{
+      border:0; background:transparent; color:var(--muted);
+      padding:8px 12px; border-radius:999px; cursor:pointer; font-size:12px
+    }
+    .seg button.active{ background: linear-gradient(180deg, #0ea5e933, #22d3ee22); color:#e6fbff }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:12px 14px; border-radius:14px; border:1px solid #ffffff1c;
+      background:#0b1222cc; cursor:pointer; color:var(--text);
+    }
+    .btn:hover{border-color:#ffffff38}
+    .grid{
+      display:grid; gap:14px; grid-template-columns: 1fr;
+    }
+    @media (min-width:620px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    .card{
+      position:relative; overflow:hidden; transform:translateZ(0);
+      border-radius:16px; padding:16px 16px; border:1px solid #ffffff17;
+      background:linear-gradient(180deg, #0f172acc, #0b1222cc);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{ transform: translateY(-3px); border-color:#7dd3fc55; box-shadow:0 12px 35px #0ea5e926 }
+    .card .row{ display:flex; gap:12px; align-items:center; }
+    .badge{
+      font-size:11px; color:#a5b4fc; background:#312e81cc; border:1px solid #6366f11f; padding:4px 8px; border-radius:999px;
+    }
+    .label{ font-weight:600 }
+    .desc{ color:var(--muted); font-size:12px }
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap; padding:4px 18px 2px;
+    }
+    .primary{
+      background:linear-gradient(180deg, #22d3ee, #38bdf8);
+      color:#00131a; border-color:transparent; font-weight:700;
+      box-shadow:0 10px 30px #22d3ee55;
+    }
+    .primary:hover{ filter:brightness(1.02) }
+    .copy-toast{
+      position:fixed; inset:auto 16px 16px auto; z-index:50;
+      background:#0b1222ee; color:#e6fbff; border:1px solid #22d3ee55;
+      padding:10px 12px; border-radius:12px; opacity:0; transform: translateY(6px);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .copy-toast.show{ opacity:1; transform: translateY(0) }
+    .footer{
+      color:var(--muted); font-size:12px; text-align:center; padding:8px 0 0;
+    }
+    /* Alignment modes */
+    .align-left .container{ align-items:flex-start; text-align:left }
+    .align-center .container{ align-items:center; text-align:center }
+    .align-right .container{ align-items:flex-end; text-align:right }
+    /* Accent ring */
+    .ring{
+      position:absolute; inset:-120px; z-index:-1; filter:blur(60px); opacity:.25;
+      background:
+        radial-gradient(400px 400px at 85% 15%, #22d3ee 0%, transparent 60%),
+        radial-gradient(420px 420px at 10% 90%, #38bdf8 0%, transparent 60%);
+      pointer-events:none;
+      border-radius:50px;
+    }
+  </style>
+</head>
+<body class="align-right">
+  <div class="wrap">
+    <div class="ring" aria-hidden="true"></div>
+
+    <div class="container glass">
+      <!-- Controls -->
+      <div class="controls">
+        <div class="seg" role="tablist" aria-label="Alignment">
+          <button id="align-left"   class="active" role="tab" aria-selected="true"  onclick="setAlign('left')">Left</button>
+          <button id="align-center" role="tab" aria-selected="false" onclick="setAlign('center')">Center</button>
+          <button id="align-right"  role="tab" aria-selected="false" onclick="setAlign('right')">Right</button>
+        </div>
+
+        <button class="btn" id="toggle-theme" aria-pressed="false" title="Toggle theme">
+          <span aria-hidden="true">🌙</span><span class="hide-mobile"> Toggle</span>
+        </button>
+      </div>
+
+      <!-- Hero -->
+      <header class="hero">
+        <div class="avatar" aria-hidden="true">K</div>
+        <div>
+          <div class="title">Kishor</div>
+          <div class="sub">@iampatilkishor • Nomad</div>
+        </div>
+      </header>
+
+      <p class="bio">
+        Exploring ideas, building projects, and sharing with AI. Quick links below —
+        start with the shared conversation or dive into my work.
+      </p>
+
+      <!-- Primary CTAs -->
+      <div class="cta">
+        <a href="#" id="open-chat" class="btn primary">
+          🔗 Open ChatGPT Conversation
+        </a>
+        <button class="btn" id="copy-chat">
+          📋 Copy chat link
+        </button>
+      </div>
+
+      <!-- Links Grid -->
+      <main class="grid" aria-label="Links">
+        <a class="card" href="https://iampatilkishor.com" target="_blank" rel="noopener">
+          <div class="row">
+            <div class="badge">Portfolio</div>
+            <div>
+              <div class="label">iampatilkishor.com</div>
+              <div class="desc">Projects, case studies, and contact</div>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" href="https://instagram.com/iampatilkishor" target="_blank" rel="noopener">
+          <div class="row">
+            <div class="badge">Instagram</div>
+            <div>
+              <div class="label">@iampatilkishor</div>
+              <div class="desc">Photos • daily pieces • behind-the-scenes</div>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtube.com/@iampatilkishor" target="_blank" rel="noopener">
+          <div class="row">
+            <div class="badge">YouTube</div>
+            <div>
+              <div class="label">@iampatilkishor</div>
+              <div class="desc">Videos and shorts</div>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" href="mailto:hello@iampatilkishor.com" target="_blank" rel="noopener">
+          <div class="row">
+            <div class="badge">Email</div>
+            <div>
+              <div class="label">hello@iampatilkishor.com</div>
+              <div class="desc">Say hi 👋</div>
+            </div>
+          </div>
+        </a>
+      </main>
+
+      <footer class="footer">
+        © <span id="year"></span> Kishor • Built with GitHub Pages
+      </footer>
+    </div>
+  </div>
+
+  <div id="toast" class="copy-toast" role="status" aria-live="polite">Copied!</div>
+
+  <script>
+    // ====== QUICK SETTINGS ====================================================
+    // Replace this with your real shared conversation URL:
+    const CHATGPT_SHARE_URL = "https://chat.openai.com/share/abc123";
+    // Default alignment on load: 'left' | 'center' | 'right'
+    const DEFAULT_ALIGN = "right";
+    // ==========================================================================
+
+    // Set links and year
+    const openChat = document.getElementById("open-chat");
+    const copyBtn = document.getElementById("copy-chat");
+    const year = document.getElementById("year");
+    openChat.href = CHATGPT_SHARE_URL;
+    year.textContent = new Date().getFullYear();
+
+    // Copy to clipboard with toast
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(CHATGPT_SHARE_URL);
+        showToast("Chat link copied");
+      } catch {
+        showToast("Copy failed — long-press to copy");
+      }
+    });
+
+    function showToast(msg){
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.remove("show"), 1500);
+    }
+
+    // Alignment toggle
+    function setAlign(mode){
+      const modes = ["left","center","right"];
+      document.body.classList.remove(...modes.map(m => "align-"+m));
+      document.body.classList.add("align-"+mode);
+      modes.forEach(m => {
+        const btn = document.getElementById("align-"+m);
+        if(!btn) return;
+        btn.classList.toggle("active", m===mode);
+        btn.setAttribute("aria-selected", m===mode ? "true" : "false");
+      });
+      localStorage.setItem("align", mode);
+    }
+    window.setAlign = setAlign; // expose to inline handlers
+    setAlign(localStorage.getItem("align") || DEFAULT_ALIGN);
+
+    // Theme toggle (dark-only visuals here; keep hook for future light mode)
+    const toggle = document.getElementById("toggle-theme");
+    toggle.addEventListener("click", () => {
+      // Optional: extend to real light/dark swap.
+      showToast("Dark theme locked (clean look)");
+    });
+
+    // Respect prefers-reduced-motion (keep subtle transforms but no big stuff)
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll("*").forEach(el => el.style.transition = "none");
+    }
+  </script>
+</body>
+</html>
